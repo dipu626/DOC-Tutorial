@@ -1,0 +1,74 @@
+                                            RxJS Library
+
+RxJS (Reactive Extensions for Javasript) is a library for reactive programming using observables
+that makes it easier to compose asynchronus or callback-based code.
+
+Reactive programming is just a different way of building software applications. 
+
+Essentially, our software is built to "react" to changes that happen (like click events, data being fetched, etc) instead of the typical way of writting software where we explicitly write code 
+(aka "imperative" programming) to handle those changes.
+
+The utility funtion provide by RxJS observale is user for - 
+    
+    1. Converting existing code for async operations into observables.
+    2. Iterating through the values in a stream.
+    3. Mapping values to different types.
+    4. Filtering streams.
+    5. Composing multiple streams.
+
+ 
+ RxJS - quick recap
+
+    1. Reactive programming is new way of building apps
+        - our app will react to changes and handle data streams rather than we wrtting each event handling separately.
+    
+    2. RxJS is library which helps us in making async calls and implement callback mechanisms easily using observables.
+
+    3. RxJS consists of three main things - 
+
+        - Observable
+        - Satelite Data Types
+            - Observers
+            - Schedulers
+            - Subjects
+        - Operators 
+            - Array methods 
+                - map
+                - filter
+                - reduce
+        - RxJS library helps us in updating data streams.
+    
+    4. Observable
+        - It is a data stream
+            - Example: In a ecommerce shopping cart application
+                - OrderStatus = null
+                    - user comes and placed an order // continuously changing
+                        - OrderStatus = order placed
+                        - OrderStatus = order received
+                        - OrderStatus = order processing
+                        - OrderStatus = order submited
+                        - OrderStatus = order completed
+                    - needs to be informed to multiple apps
+        
+        - Subscriber
+            - It will listen to the observable for data changes/updates
+            - My app is dashboard
+                - OrderStatus - latest value always - since we have subscribed to it
+
+    Example #2
+        - Youtube channel
+            - Observable
+                - Data(video) is posted everyday
+                - Any changes that happen to the channel
+                - Content
+                    - Video
+                    - Community Message
+            
+            - Subcribe
+                you have subscribed to the channel
+                    - You get notified everytime when a video is posted
+                    - And there is a change in data of the channel
+            
+            - Operators
+                - filter 
+                - map
