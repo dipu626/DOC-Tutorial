@@ -1,0 +1,13 @@
+                            How to install RxJS:
+
+    - Website Link: http://reactivex.io/rxjs/manual/installation.html
+
+    - Multiple ways we can use RxJS
+        - As a CDN link
+            - https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js
+        
+        - As a ES6 module
+            - npm i -save rxjs
+
+    - Angular internally uses RxJS - hence its already shipped with angular apps/projects.
+        - Check in package.json file 
