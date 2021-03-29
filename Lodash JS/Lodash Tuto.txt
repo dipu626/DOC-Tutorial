@@ -1,0 +1,410 @@
+Lodash: 
+        Lodash is a JavaScript library which provides utility functions for common programming  
+        tasks. It uses a functional programming paradigm. Lodash was inspired by Underscore.js.
+
+Why Lodash:
+        Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers,
+        objects, strings etc. Lodash's modular methods are great for:
+
+            - Iterating arrays, objects and strings
+            - Manipulating and testing values
+            - Creating composite functions
+
+Lodash Installation:
+        You can install Lodash using npm. 
+
+            $ npm i -g npm
+            $ npm i --save lodash 
+
+Lodash JS Examples:
+
+        1. Lodash _.assign() Method
+            
+            The _.assign method is the equivalent of the spread operator from ES6. It's preety easy
+            to understand. It assigns properties of one or many objects to a source object.
+
+                <sript type="text/javaScript>
+                    var foo = {
+                        a: "a property"
+                    };
+                    var bar = {
+                        b: 4,
+                        c: "an other property"
+                    };
+                    var result = _.assign({
+                        a: "an old property"
+                    }, foo, bar);
+                    console.log(JSON.stringify(result));
+                </script>
+            
+                {"a":"a property", "b":4, "c":"an other property"}
+        
+
+        2. Lodash _.first() and _.last() Methods
+
+            The _.first() or _.head() function return the first array element.
+            The _.last() function return the last array element.
+
+                <script type="text/javascript">
+                    // Lodash first and last array elements
+                    words = ['sky', 'wood', 'forest', 'falcon', 'pear', 'ocean', 'universe'];
+
+                    let fel = _.first(words);
+                    let lel = _.last(words);
+
+                    console.log(`First element: ${fel}`);
+                    console.log(`Last element: ${lel}`);
+                </script>
+
+                First element: sky
+                Last element: universe
+
+        3. Lodash _.find() Method
+
+            Instead of iterating through an array with a loop to find a specific object, we can 
+            simply use a _.find() method.
+
+                <script type="text/javascript">
+                    // Lodash first and last array elements
+                    var users = [
+                        { firstName: "John", lastName: "Doe", age: 28, gender: "male" },
+                        { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" },
+                        { firstName: "Jim", lastName: "Carrey", age: 54, gender: "male" },
+                        { firstName: "Kate", lastName: "Winslet", age: 40, gender: "female" }
+                    ];
+
+                    var user = _.find(users, { lastName: "Doe", gender: "male" });
+                    console.log(user);
+
+                    // user -> { firstName: "John", lastName: "Doe", age: 28, gender: "male" }
+
+                    var underAgeUser = _.find(users, function(user) {
+                        return user.age < 18;
+                    });
+  
+                    console.log(underAgeUser);
+                </script>
+
+                {firstName: "John", lastName: "Doe", age: 28, gender: "male"}
+                {firstName: "Jane", lastName: "Doe", age: 5, gender: "female"}
+
+        4. Lodash _.chunk() Method
+
+            The _.chunk() function creates an array of elements split into groups the length of the
+            specified size.
+
+                <script type="text/javascript">
+                    // Lodash chunking array
+                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+                    let c1 = _.chunk(nums, 2);
+                    console.log(c1);
+
+                    let c2 = _.chunk(nums, 3);
+                    console.log(c2);
+                </script>
+
+                [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9 ] ]
+                [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
+
+        
+        5. Lodash _.slice() Method
+
+            The _.slice() method gets a slice from an array. It takes two indexes: the starting and
+            the ending. Where the starting index is inclusive and the ending is exclusive.
+
+                <script type="text/javascript">
+                    // Getting array slice
+                    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+                    let c2 = _.slice(nums, 2, 6);
+                    console.log(c2);
+
+                    let c3 = _.slice(nums, 0, 8);
+                    console.log(c3);
+                </script>
+
+                [3, 4, 5, 6]
+                [1, 2, 3, 4, 5, 6, 7, 8]
+
+        6. Lodash _.random() Method
+
+            The _.random() function produces random values between the inclusive lower and upper bounds.
+
+                <script type="text/javascript">
+                    // Getting array slice
+                    var r = _.random(15);
+                    console.log(r);
+
+                    r = _.random(5, 15);
+                    console.log(r);
+                </script>
+
+        7. Lodash _.keyBy() Method
+
+            _.keyBy() is very usefull method. It helps a lot when trying to get an object with a 
+            specific property. Let's say we have 100 users and we want to get the user with Id 1.
+
+                <script type="text/javascript">
+                    var users = [
+                        { id: 1, firstName: "John", lastName: "Doe", age: 28, gender: "male" },
+                        { id : 2, firstName: "Jane", lastName: "Doe", age: 5, gender: "female" },
+                        { id : 3, firstName: "Jim", lastName: "Carrey", age: 54, gender: "male" },
+                        { id : 4, firstName: "Kate", lastName: "Winslet", age: 40, gender: "female" }
+                    ];
+            
+                    users = _.keyBy(users, "id");
+    
+                    var user = users[1];
+                    console.log(user);
+                </script>
+
+            {id: 1, firstName: "John", lastName: "Doe", age: 28, gender: "male"}
+
+        8. Lodash _.reduce() Method
+
+            _.reduce() is a little bit like a filter function. The only difference if that you can 
+            choose the form of the return object.
+   
+                <script type="text/javascript">
+                    var users = [
+                    { name: "John", age: 30 },
+                    { name: "Jane", age: 28 },
+                    { name: "Bill", age: 65 },
+                    { name: "Emily", age: 17 },
+                    { name: "Jack", age: 30 }
+                    ]
+
+                    var reducedUsers = _.reduce(users, function (result, user) {
+                        if(user.age >= 18 && user.age <= 59) {
+                            (result[user.age] || (result[user.age] = [])).push(user);
+                        }
+                        return result;
+                    }, {});
+                    
+                    console.log(JSON.stringify(reducedUsers));
+                </script>
+
+                {"28":[{"name":"Jane","age":28}],"30":[{"name":"John","age":30},{"name":"Jack","age":30}]}
+
+
+            9. Lodash _.shuffle() Method
+
+                The _.shuffle() function shuffles a collection.
+
+                    <script type="text/javascript">
+                        words = ['sky', 'wood', 'forest', 'falcon', 
+                        'pear', 'ocean', 'universe'];
+
+                        console.log(_.shuffle(words));
+                        console.log(_.shuffle(words));
+                        console.log(_.shuffle(words));
+                        console.log(words);
+                    </script>
+
+                    ["universe", "pear", "ocean", "sky", "wood", "falcon", "forest"]
+                    ["forest", "pear", "ocean", "falcon", "wood", "universe", "sky"]
+                    ["ocean", "sky", "wood", "universe", "pear", "forest", "falcon"]
+                    ["sky", "wood", "forest", "falcon", "pear", "ocean", "universe"]
+                
+            10. Lodash _.times() Method
+
+                The _.times() function executes the funtion n times.
+
+                    <script type="text/javascript">
+                        _.times(4, () => {
+                        console.log("brave");
+                        })
+                    </script>
+
+                    brave
+                    brave
+                    brave
+                    brave
+
+            11. Lodash _.delay() function
+
+                The _.delay() function delays the execution of a function for the specified amount
+                of miliseconds.
+
+                <script type="text/javascript">
+                    function message() {
+                        console.log("Some message");
+                    }
+                    _.delay(message, 150);
+                    console.log("Some other message");
+                </script>
+
+            12. Lodash _.range() Method
+
+                The _.range() function creates an array of numbers. The function accepts the start, 
+                end and step parameters.
+
+                    <script type="text/javascript">
+                        const vals = _.range(10);
+                        console.log(vals);
+
+                        const vals2 = _.range(0, 15);
+                        console.log(vals2);
+
+                        const vals3 = _.range(0, 15, 5);
+                        console.log(vals3);
+                    </script>
+
+                    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+                    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+                    [ 0, 5, 10 ]        
+
+            13. Lodash _.min() and _.max() Methods
+
+                Lodash allows computing the maximum and minimum values of an array.
+
+                    <script type="text/javascript">
+                        const vals = [-3, 4, 0, 12, 43, 9, -12];
+
+                        var min = _.min(vals);
+                        console.log(min);
+
+                        var max = _.max(vals);
+                        console.log(max);
+
+                        max = _.max(_.range(5, 25));
+                        console.log(max);
+
+                        const obs = [{n: 12}, {n: -4}, {n: 4}, {n: -11}];
+
+                        min = _.minBy(obs, 'n');
+                        console.log(min);
+
+                        max = _.maxBy(obs, 'n');
+                        console.log(max);
+                    </script>
+
+                    -12
+                    43
+                    24
+                    [{n: -11}]
+                    [{n: 12}]
+
+        14. Lodash _.sum() Method
+
+            The _.sum() function calculates the sum of the array values.
+
+                const vals = [-2, 0, 3, 7, -5, 1, 2];
+                const sum = _.sum(vals);
+                console.log(sum);
+
+                6
+
+        15. Lodash String Case Method
+
+            Locase library contains several functions that work with the case of words.
+
+                1) _.camelCase
+                2) _.kebabCase
+                3) _.lowerCase
+                4) _.upperCase
+                5) _.snakeCase
+
+                All these also can be used as function.
+
+                    <script type="text/javascript">
+                        const words = ["sky", "Sun", "Blue Island"];
+
+                        console.log(_.map(words, _.camelCase));
+                        console.log(_.map(words, _.capitalize));
+                        console.log(_.map(words, _.kebabCase));
+                        console.log(_.map(words, _.lowerCase));
+                        console.log(_.map(words, _.upperCase));
+                        console.log(_.map(words, _.snakeCase));
+                    </script>
+
+                    ["sky", "sun", "blueIsland"]
+                    ["Sky", "Sun", "Blue island"]
+                    ["sky", "sun", "blue-island"]
+                    ["sky", "sun", "blue island"]
+                    ["SKY", "SUN", "BLUE ISLAND"]
+                    ["sky", "sun", "blue_island"]
+
+        16. Lodash string _.startsWith and _.endsWith Method
+
+            The _.startsWith() function determines if the string starts with the specified string. The 
+            _.endsWith() function determines if the string ends with the specified string.
+
+                <script type="text/javascript">
+                    const words = ["tank", "boy", "tourist", "ten",
+                                    "pen", "car", "marble", "sonnet", "pleasant", 
+                                    "ink", "atom"]
+
+                    console.log("Starting with 't'");
+                        words.forEach( e => {
+                        if (_.startsWith(e, 't')) {
+                            console.log(e);
+                        }
+                    });
+                    console.log("Ending with 'k'");
+                    words.forEach( e => {
+                        if (_.endsWith(e, 'k')) {
+                            console.log(e);
+                        }
+                    });
+                </script> 
+
+                Starting with 't'
+                tank
+                tourist
+                ten
+                Ending with 'k'
+                tank
+                ink
+
+        17. Lodash object _.keys() and _.values()
+
+            The _.keys() function returns an array of the property names of the JavaScript object
+            and the _.values() function returns an array of their values.
+
+                <script type="text/javascript">
+                    // using Object Literals
+                    var user = {
+                        firstName: 'Ramesh',
+                        lastName: 'Fadatare',
+                        emailId: 'ramesh@gmail.com',
+                        age: 29,
+                        getFullName: function () {
+                            return user.firstName + " " + user.lastName;
+                        }
+                    }
+
+                    const keys = _.keys(user);
+                    console.log(keys);
+
+                    const values = _.values(user);
+                    console.log(values);
+                </script>
+
+                ["firstName", "lastName", "emailId", "age", "getFullName"]
+                ["Ramesh", "Fadatare", "ramesh@gmail.com", 29, ƒ]
+
+        
+        18. Iterate object properties
+
+            The _.forIn() function can be used to iterate over object properties.
+
+                <script type="text/javascript">
+                    // using Object Literals
+                    var user = {
+                        firstName: 'Ramesh',
+                        lastName: 'Fadatare',
+                        emailId: 'ramesh@gmail.com',
+                        age: 29
+                    }
+
+                    _.forIn(user, (value, key) => {
+                        console.log(`${key}: ${value}`);
+                    })
+                </script> 
+
+                firstName: Ramesh
+                lastName: Fadatare
+                emailId: ramesh@gmail.com
+                age: 29
